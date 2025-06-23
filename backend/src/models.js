@@ -53,7 +53,7 @@ const tasks = sequelize.define(
   { timestamps: false }
 );
 
-users.hasMany(users, {
+users.hasMany(tasks, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });

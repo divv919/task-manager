@@ -27,6 +27,7 @@ app.post("/api/signup", async (req, res) => {
       res.status(500).json({ message: "Email already exists, please Log in" });
       return;
     }
+
     const hashPassword = await bcrypt.hash(
       password,
       Number(process.env.SALT_ROUNDS)
@@ -42,6 +43,7 @@ app.post("/api/signup", async (req, res) => {
 
 app.post("/api/login", async (req, res) => {
   const { email, password } = req.body;
+
   const emailValid = await users.findOne({
     where: {
       email,
@@ -60,7 +62,9 @@ app.post("/api/login", async (req, res) => {
     { userId: emailValid.id },
     process.env.JWT_SECRET
   );
-  res.status(200).json({ message: "Login successful", token });
+  res
+    .status(200)
+    .json({ message: "Login successful", token: `Bearer ${token}` });
 });
 app.get("/api/tasks", authMiddleware, async (req, res) => {
   try {

@@ -5,7 +5,7 @@ A full-stack Task Manager application that helps users efficiently create, track
 ---
 
 <video width="100%" controls> 
-<source src="https://private-user-images.githubusercontent.com/169496960/458380272-841a0688-b717-4930-94e1-3ac3e4c7a2c4.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTA3NjkzMjIsIm5iZiI6MTc1MDc2OTAyMiwicGF0aCI6Ii8xNjk0OTY5NjAvNDU4MzgwMjcyLTg0MWEwNjg4LWI3MTctNDkzMC05NGUxLTNhYzNlNGM3YTJjNC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjI0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYyNFQxMjQzNDJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZWJmNGIxODExNThiYzkwYjhkYTVjNDQ3NmVlYjNkYWJjYjA2MzRjN2ZkNTFiYTdlZTU1YTIyMmM3ODU5ZDQyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.2gHbCInt6z7jevBctEtvatyEYL9tnwQ3EiGJaDkx6HE"  type="video/mp4"></source>
+<source src="https://github.com/user-attachments/assets/516b4ea5-d9d8-4684-a3df-6cb0fede7bcf"  type="video/mp4"></source>
 </video>
 
 ## 🚀 Features

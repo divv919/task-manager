@@ -2,6 +2,10 @@
 
 A full-stack Task Manager application that helps users efficiently create, track, and manage their daily tasks. Built with the MERN-style stack using **Node.js**, **Express**, **React**, **Tailwind CSS**, **Sequelize**, and **PostgreSQL**.
 
+https://github.com/user-attachments/assets/89cfb4a7-c651-4393-ad6c-eba82f45234c
+
+
+
 ---
 
 <video width="100%" controls> 

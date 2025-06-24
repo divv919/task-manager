@@ -24,7 +24,8 @@ app.post("/api/signup", async (req, res) => {
   }
   console.log("Name : ", name, " email : ", email, " password : ", password);
   try {
-    const alreadyExists = await users.findOne({ where: { name } });
+    const alreadyExists = await users.findOne({ where: { email } });
+    console.log("already exists : ", alreadyExists);
     if (alreadyExists) {
       res.status(500).json({ message: "Email already exists, please Log in" });
       return;

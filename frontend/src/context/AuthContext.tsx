@@ -25,10 +25,13 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {
     try {
       setAuthLoading(true);
-      const response = await axios.post("http://localhost:3000/api/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        import.meta.env.VITE_BACKEND_BASE + "api/login",
+        {
+          email,
+          password,
+        }
+      );
       if (response.data.token) {
         setToken(response.data.token);
       }
@@ -44,11 +47,14 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signup = async (email: string, password: string, name: string) => {
     try {
       setAuthLoading(true);
-      const response = await axios.post("http://localhost:3000/api/signup", {
-        email,
-        password,
-        name,
-      });
+      const response = await axios.post(
+        import.meta.env.VITE_BACKEND_BASE + "api/signup",
+        {
+          email,
+          password,
+          name,
+        }
+      );
       console.log("Signup up", response);
       return true;
     } catch (err) {

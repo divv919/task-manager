@@ -22,7 +22,7 @@ export const Card = ({
     console.log("id of status change is : ", id);
 
     try {
-      await axios.put("http://localhost:3000/api/tasks/" + id, {
+      await axios.put(import.meta.env.VITE_BACKEND_BASE + "api/tasks/" + id, {
         status:
           status === "Pending"
             ? "On Going"
@@ -39,7 +39,7 @@ export const Card = ({
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:3000/api/tasks/" + id);
+      await axios.delete(import.meta.env.VITE_BACKEND_BASE + "api/tasks/" + id);
       reFetch();
     } catch (err) {
       alert("Error deleting the status");
@@ -48,7 +48,7 @@ export const Card = ({
   };
   const handleUpdate = async () => {
     try {
-      await axios.put("http://localhost:3000/api/tasks/" + id, {
+      await axios.put(import.meta.env.VITE_BACKEND_BASE + "api/tasks/" + id, {
         title: editValue,
       });
       reFetch();

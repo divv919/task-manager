@@ -21,6 +21,7 @@ export const Signup = () => {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
+  console.log("Base URL:", import.meta.env.VITE_BACKEND_BASE);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);

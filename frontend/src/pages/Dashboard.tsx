@@ -15,7 +15,7 @@ export const Dashboard = () => {
   const navigate = useNavigate();
 
   const { loading, error, reFetch, data } = useFetch(
-    "http://localhost:3000/api/tasks"
+    import.meta.env.VITE_BACKEND_BASE + "api/tasks"
   );
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const Dashboard = () => {
 
   const handleAddTask = async () => {
     await axios.post(
-      "http://localhost:3000/api/tasks",
+      import.meta.env.VITE_BACKEND_BASE + "api/tasks",
       { title: addTaskName, status: "Pending" },
       {
         headers: {

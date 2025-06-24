@@ -1,17 +1,19 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import axios from "axios";
 interface AuthContextType {
-  login: (email: string, password: string) => void;
-  signup: (email: string, password: string, name: string) => void;
+  login: (email: string, password: string) => Promise<boolean>;
+  signup: (email: string, password: string, name: string) => Promise<boolean>;
   isAuthenticated: boolean;
-  loading: boolean;
+  authLoading: boolean;
+  token: string | null;
+  logout: () => void;
 }
 const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
-  const [loading, setLoading] = useState(false);
+  const [authLoading, setAuthLoading] = useState(false);
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
@@ -22,7 +24,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [token]);
   const login = async (email: string, password: string) => {
     try {
-      setLoading(true);
+      setAuthLoading(true);
       const response = await axios.post("http://localhost:3000/api/login", {
         email,
         password,
@@ -30,31 +32,42 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (response.data.token) {
         setToken(response.data.token);
       }
+      return true;
     } catch (err) {
       console.log("error ", err);
+      return false;
     } finally {
-      setLoading(false);
+      setAuthLoading(false);
     }
   };
 
   const signup = async (email: string, password: string, name: string) => {
     try {
-      setLoading(true);
+      setAuthLoading(true);
       const response = await axios.post("http://localhost:3000/api/signup", {
         email,
         password,
         name,
       });
       console.log("Signup up", response);
+      return true;
     } catch (err) {
       console.log("Error signing up ", err);
+      return false;
     } finally {
-      setLoading(false);
+      setAuthLoading(false);
     }
   };
 
+  const logout = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+  };
+
   return (
-    <AuthContext.Provider value={{ login, signup, isAuthenticated, loading }}>
+    <AuthContext.Provider
+      value={{ login, signup, isAuthenticated, authLoading, token, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

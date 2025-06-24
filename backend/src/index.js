@@ -72,6 +72,7 @@ app.get("/api/tasks", authMiddleware, async (req, res) => {
       where: {
         user_id: String(req.userId),
       },
+      order: [["id", "ASC"]],
     });
     // console.log("response is ; ", response);
     res.status(200).json(response);
